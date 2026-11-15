@@ -2,3 +2,6 @@
 *.pdf binary
 *.png binary
 *.csv text eol=lf
+
+# Frozen pre-registration: keep the bytes exactly as hashed
+docs/PREREGISTRATION_FROZEN.md -text
