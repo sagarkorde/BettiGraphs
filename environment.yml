@@ -1,0 +1,35 @@
+# Conda equivalent of requirements.txt. Python 3.10 is required: gudhi, ripser and
+# the torch cu128 wheels publish no 3.11+ / 3.14 builds used by this project.
+name: bettigraphs
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - numpy=1.26.4
+  - pandas=2.3.0
+  - scipy=1.15.3
+  - numba=0.61.2
+  - networkx=3.4.2
+  - python-igraph=0.11.9
+  - scikit-learn=1.6.1
+  - matplotlib=3.10.3
+  - seaborn=0.13.2
+  - joblib=1.5.1
+  - tqdm=4.67.1
+  - psutil=7.0.0
+  - pytest=9.0.2
+  - pip:
+      - gudhi==3.13.0
+      - persim==0.3.8
+      - ripser==0.6.15
+      - POT==0.9.7.post1
+      - imbalanced-learn==0.13.0
+      - xgboost==3.0.2
+      - lightgbm==4.6.0
+      - catboost==1.2.8
+      - pytest-timeout==2.4.0
+      # Install torch from the PyTorch index to get the CUDA build:
+      #   pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu128
+      - torch==2.7.1
+      - torch-geometric==2.7.0

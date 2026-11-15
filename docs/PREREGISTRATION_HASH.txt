@@ -1,0 +1,17 @@
+Pre-registration freeze record
+==============================
+
+This file records the exact state of docs/PREREGISTRATION.md at the moment it was frozen,
+before any model was fitted. It is the audit trail referred to in the manuscript.
+
+Freeze date        : 2026-09-27
+Freezing commit    : 48c7134a119a5e279986650e7347f1c1677efd9d
+SHA-256 of the file: 45f643a7749a6289aeb5685886ca3097357390c0e31c0e58dfb4d080c5961e43
+
+Verify with:
+    git show 48c7134a119a5e279986650e7347f1c1677efd9d:docs/PREREGISTRATION.md | sha256sum
+    (or, on Windows)
+    git show 48c7134a119a5e279986650e7347f1c1677efd9d:docs/PREREGISTRATION.md > tmp && certutil -hashfile tmp SHA256
+
+Any later change to the pre-registration appears as an appended amendment in its section 10,
+so this hash covers the frozen original and the commit history covers everything after.

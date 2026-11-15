@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "BettiGraphs: persistent-homology-based structural profiling of Bitcoin transaction networks"
+abstract: >-
+  Research pipeline computing persistent homology of Bitcoin transaction and address graphs,
+  extracting Betti-curve and persistence-based representations, and evaluating them against
+  conventional graph features and graph neural network baselines for illicit-activity detection
+  and wallet relationship analysis on the Elliptic and Elliptic++ benchmarks.
+type: software
+authors:
+  - family-names: "Korde"
+    given-names: "Sagar"
+repository-code: "https://github.com/sagarkorde/BettiGraphs"
+license: MIT
+keywords:
+  - persistent homology
+  - Betti numbers
+  - topological data analysis
+  - Bitcoin
+  - transaction graph
+  - blockchain forensics
+  - anomaly detection
+  - wallet analysis

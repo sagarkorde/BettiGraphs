@@ -1,0 +1,77 @@
+# Direct dependencies, pinned to the versions the results were produced with.
+# The complete transitive environment is in requirements-freeze.txt; hardware,
+# interpreter and CUDA details are in docs/ENVIRONMENT.md.
+#
+# Python 3.10 is required.
+#
+# This file was audited against the code on 2026-09-30 by parsing every import in
+# the repository. Nine packages that had been pinned here are imported nowhere and
+# have been moved to the optional section below with the reason; one package the
+# code does import, pymupdf, was missing and would have broken a clean-environment
+# reproduction of the bibliography step. Keeping an unused pin is not harmless: it
+# makes a reproducer install a CUDA build of torch, among other things, to run
+# experiments that never touch it.
+
+# --- topological data analysis ---
+gudhi==3.13.0
+
+# --- graphs ---
+networkx==3.4.2
+
+# --- numerics and data ---
+numpy==1.26.4
+pandas==2.3.0
+scipy==1.15.3
+
+# --- machine learning ---
+scikit-learn==1.6.1
+xgboost==3.0.2
+lightgbm==4.6.0
+catboost==1.2.8
+
+# --- plotting ---
+matplotlib==3.10.3
+
+# --- infrastructure ---
+joblib==1.5.1
+psutil==7.0.0
+pytest==9.0.2
+pytest-timeout==2.4.0     # used through pytest.ini (--timeout=600), not imported
+
+# --- bibliography tooling ---
+pymupdf==1.26.3           # scripts/extract_leapspace_references.py reads the source PDF
+
+
+# =============================================================================
+# Optional. Not needed to reproduce any reported result. Each was pinned in an
+# earlier version of this file and is imported nowhere in the repository.
+# =============================================================================
+#
+# torch==2.7.1            src/utils/seeds.py imports it inside a try/except and
+#                         seeds CUDA when present. No reported experiment uses a
+#                         GPU model -- the classifiers are logistic regression,
+#                         random forest, XGBoost and LightGBM -- so a reproduction
+#                         does not need it. Install from the PyTorch index if you
+#                         want GPU seeding:
+#                           pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu128
+# torch-geometric==2.7.0  mentioned only in a docstring, describing where the
+#                         Elliptic files are hosted. Not used.
+# persim==0.3.8           persistence images and landscapes are implemented in
+# ripser==0.6.15          src/features/topological.py; diagram distances come from
+# POT==0.9.7.post1        gudhi. None of these three is imported.
+# igraph==0.11.9          networkx is used throughout instead.
+# numba==0.61.2           the hot paths are vectorised with numpy; nothing is jitted.
+# imbalanced-learn==0.13.0  class imbalance is handled by class weights and by the
+#                         choice of PR-AUC, not by resampling.
+# seaborn==0.13.2         figures use matplotlib directly, through
+#                         src/evaluation/plotting.py.
+# tqdm==4.67.1            progress is reported through logging, so that it survives
+#                         redirection to a log file.
+#
+# Deliberately never required:
+#   shap        -- XGBoost/LightGBM expose exact TreeSHAP natively via
+#                  pred_contribs=True / pred_contrib=True
+#   statsmodels -- Holm-Bonferroni is implemented in src/evaluation/statistics.py
+#   giotto-tda  -- pins scikit-learn and numpy; its transformers are replaced by
+#                  src/features/topological.py, which also avoids fitted ranges
+#                  and therefore a class of train/test leakage

@@ -1,0 +1,50 @@
+
+!data/raw/MANIFEST.json
+# Environment
+# Large or machine-specific artefacts
+# Licensing for both datasets forbids or does not grant redistribution; use
+# OS / editor
+# Raw and intermediate data are never committed.
+# Run logs are transient: they record that a stage executed, not what it found. The evidence is
+# The LeapSpace literature-review report is the author's own input document and this
+# and figures, all of which are committed. Events worth remembering are written up in
+# data/download_scripts/ to refetch from the official sources.
+# docs/DATA_FINDINGS.md and docs/PROGRESS.md rather than left in a log for someone to excavate.
+# records everything derived from it.
+# repository is public; it is kept locally rather than redistributed. docs/LITERATURE_AUDIT.md
+# the CSV and JSON under results/processed and results/statistical_tests, and the derived tables
+*.ckpt
+*.egg-info/
+*.joblib
+*.pkl
+*.pt
+*.pth
+*.py[cod]
+.DS_Store
+.idea/
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+.vscode/
+BettiGraphs_manuscript.docx
+Thumbs.db
+Topological_Data_Analysis_of_Cryptocurrency_LeapSpace.pdf
+__pycache__/
+data/processed/
+data/raw/
+desktop.ini
+logs/
+results/raw/**/*.npy
+results/raw/**/*.npz
+results/raw/*.log
+submission/*.docx
+
+# Article files are not published in this repository (code only)
+manuscript/
+submission/
+Publication/
+figures/
+tables/
+results/
+*.docx
+*.pdf
